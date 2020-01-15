@@ -1,17 +1,21 @@
 require 'pg'
 
-class Bookmarks 
+class Bookmarks
 
   def initialize(bookmark = [])
     @bookmark = bookmark
   end
 
   def self.all
-    connect = PG.connect( :dbname => 'bookmark_manager', :user => 'student')
+    if ENV['ENVIRONMENT'] == 'test'
+      connect = PG.connect( :dbname => 'bookmark_manager_test')
+    else
+      connect = PG.connect( :dbname => 'bookmark_manager')
+    end
     urls = connect.exec "SELECT url FROM bookmarks"
-      a = urls.map do |row|
+    urls.map do |row|
         row['url']
       end
   end
-  
+
 end

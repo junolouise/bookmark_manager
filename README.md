@@ -7,6 +7,12 @@ This week, you will build a web app that stores web bookmarks in a database.
 2. Create the database using the psql command CREATE DATABASE bookmark_manager
 3. Connect to the database using the pqsl command \c bookmark_manager;
 
+## How to set up the test database
+
+open psql in command line
+CREATE DATABASE bookmark_manager_test
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+
 ## Learning objectives
 
 #### Primary goal
