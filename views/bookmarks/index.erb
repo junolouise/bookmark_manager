@@ -1,6 +1,4 @@
 Bookmark Manager
 <ul>
-  <% @bookmarks.all.each do |bookmark| %>
-    <li><%= bookmark %></li>
-  <% end %>
+  <%= @bookmarks.join("<br>") %>
 </ul>    

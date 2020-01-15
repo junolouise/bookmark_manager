@@ -9,3 +9,4 @@ gem 'simplecov-console', require: false
 gem 'sinatra'
 gem 'thin'
 gem 'webdrivers', '~> 4.0'
+gem 'pg'

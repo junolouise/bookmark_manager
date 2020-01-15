@@ -3,12 +3,8 @@ require './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
 
-  before do
-    @bookmarks = Bookmarks.instance
-  end
-
   get '/bookmarks' do
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmarks.all
     erb :'bookmarks/index'
   end
 

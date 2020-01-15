@@ -1,3 +1,5 @@
+require 'pg'
+
 class Bookmarks 
 
   def initialize(bookmark = [])
@@ -5,11 +7,11 @@ class Bookmarks
   end
 
   def self.all
-    [
-      "www.google.co.uk",
-      "www.bbc.co.uk",
-      "www.hotukdeals.co.uk"
-    ]
+    connect = PG.connect( :dbname => 'bookmark_manager', :user => 'student')
+    urls = connect.exec "SELECT url FROM bookmarks"
+      a = urls.map do |row|
+        row['url']
+      end
   end
   
 end
