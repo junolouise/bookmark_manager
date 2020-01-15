@@ -2,6 +2,11 @@
 
 This week, you will build a web app that stores web bookmarks in a database.
 
+## How to use SQL queries
+1. Connect to SQL
+2. Create the database using the psql command CREATE DATABASE bookmark_manager
+3. Connect to the database using the pqsl command \c bookmark_manager;
+
 ## Learning objectives
 
 #### Primary goal
