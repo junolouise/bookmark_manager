@@ -13,6 +13,12 @@ open psql in command line
 CREATE DATABASE bookmark_manager_test
 CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
 
+## Add new bookmarks user story:
+
+As a user
+So that I can update my bookmarks
+I would like to add bookmarks to my bookmark manager
+
 ## Learning objectives
 
 #### Primary goal
