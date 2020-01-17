@@ -5,13 +5,23 @@ describe Bookmarks do
     it 'returns all bookmarks' do
       connect = PG.connect( :dbname => 'bookmark_manager_test')
 
-      connect.exec("INSERT INTO bookmarks (url) VALUES('www.google.co.uk');")
-      connect.exec("INSERT INTO bookmarks (url) VALUES('www.bbc.co.uk');")
+      connect.exec("INSERT INTO bookmarks (url, title) VALUES('www.google.co.uk', 'My favourite search engine');")
+      connect.exec("INSERT INTO bookmarks (url, title) VALUES('www.bbc.co.uk', 'Non-biased UK based news');")
 
       bookmarks = Bookmarks.all
 
-      expect(bookmarks).to include("www.google.co.uk")
-      expect(bookmarks).to include("www.bbc.co.uk")
+      expect(bookmarks.first).to be_a(Bookmarks)
     end
   end
+
+  describe 'add new bookmark' do
+    it 'adds bookmark' do
+      
+      Bookmarks.add_bookmark("www.google.co.uk", "google")
+      bookmarks = Bookmarks.all
+
+      expect(bookmarks.first).to be_a(Bookmarks)
+    end
+  end
+
 end
