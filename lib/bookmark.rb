@@ -18,4 +18,13 @@ class Bookmarks
       end
   end
 
+  def self.add_bookmark(url)
+      if ENV['ENVIRONMENT'] == 'test'
+        connect = PG.connect( :dbname => 'bookmark_manager_test')
+      else
+        connect = PG.connect( :dbname => 'bookmark_manager')
+      end
+      connect.exec("INSERT INTO bookmarks (url) VALUES('#{url}')")
+  end
+
 end
